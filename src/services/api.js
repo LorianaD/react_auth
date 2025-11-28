@@ -2,7 +2,7 @@
 const API_URL = import.meta.env.VITE_API_URL;
 
 // logique d'instruction
-export async function register(email, password) {
+export async function register(email, password, birth_date, birth_city) {
     // faire la req post sur la route /api/auth/register
     const response = await fetch(`${API_URL}/api/auth/register`, {
         method: 'POST',
@@ -10,7 +10,7 @@ export async function register(email, password) {
             'Content-Type' : `application/json`
         },
         // passer les data au body
-        body: JSON.stringify({email, password}),
+        body: JSON.stringify({email, password, birth_date, birth_city}),
     });
 
     // pass la response json
@@ -50,7 +50,7 @@ export async function login(email, password) {
 export async function getProfile(token) {
     // preparation de la requete get sur la route api/auth/profile
     // pour les resultas necessite une connexion, on doit passer dans le header le Token
-    const response = await fetch(`${API_URL}/api/auth/profil`, {
+    const response = await fetch(`${API_URL}/api/auth/profile`, {
         method: 'GET',
         headers: {
             'Content-Type' : 'application/json',

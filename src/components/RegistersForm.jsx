@@ -7,6 +7,8 @@ function RegisterForm() {
     // etat pour stocker les valeur du form
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [birth_date, setBirth_date] = useState();
+    const [birth_city, setBirth_city] = useState();
     // etat pour stocker les messages d'erreur
     const [message, setMessage] = useState('');
     // etat pour savoir si on est en train d'envoyer une request
@@ -23,13 +25,13 @@ function RegisterForm() {
 
         try {
             // On appelle notre service api
-            const result = await register(email, password);
+            const result = await register(email, password, birth_date, birth_city);
             // On affiche le message de succes
             setMessage('Super ! Inscription reussit.');
             // faire une redirection vers login
             setTimeout(()=>{
                 navigate('/login');
-            }, 3000)
+            }, 1000)
 
         } catch (error) {
             console.error('erreur:', error);
@@ -60,6 +62,22 @@ function RegisterForm() {
                         required
                         disabled={loading}
                     />                    
+                </div>
+                <div>
+                    <label htmlFor="birth_date">Date d'anniversaire :</label>
+                    <input type="date" name="birth_date" id="birth_date" value={birth_date} onChange={(e)=>
+                        setBirth_date(e.target.value)}
+                        required
+                        disabled={loading}                   
+                    />
+                </div>
+                <div>
+                    <label htmlFor="birth_city">Lieu de naissance</label>
+                    <input type="text" name="birth_city" id="birth_city" value={birth_city} onChange={(e)=>
+                        setBirth_city(e.target.value)}
+                        required
+                        disabled={loading}
+                    />
                 </div>
 
                 <button type="submit">

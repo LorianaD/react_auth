@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router";
 import { login } from "../services/api.js";
 
-
 function LoginForm() {
 
     const [email, setEmail] = useState();
@@ -18,6 +17,7 @@ function LoginForm() {
         setMessage('');
 
         try {
+
             const result = await login(email, password);
 
             // Je stock mon token dans le localstorage de mon client
@@ -27,7 +27,7 @@ function LoginForm() {
 
             setTimeout(()=>{
                 navigate('/profile');
-            }, 3000)
+            }, 3000) // 3000 = 3 sécondes;
 
         } catch (error) {
             console.error('erreur:', error);
@@ -67,7 +67,7 @@ function LoginForm() {
             </form>
             {message}
 
-            <div>Pas encore inscrit ? <Link to={'/register'}>S'inscrire.'</Link></div>
+            <div>Pas encore inscrit ? <Link to={'/register'}>S'inscrire.</Link></div>
         </>
     )
 }

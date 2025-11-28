@@ -1,0 +1,30 @@
+.user-profile {
+    box-shadow: 5px 5px 5px 5px rgba(136, 136, 136, 0.5);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    border-radius: 5px;
+    width: 80vw;
+}
+
+.user-intem {
+    margin: 10px;
+}
+
+.title-intem {
+    color: rgb(0, 70, 156);
+}
+
+.btn-logout {
+    width: 200px;
+    margin: 10px auto 0;
+    box-shadow: 1px 1px 2px 2px rgba(136, 136, 136, 0.5);
+    border: none;
+    background-color: rgb(0, 72, 160);
+    color: rgb(232, 231, 255);
+}
+
+.btn-logout:hover {
+    box-shadow: none;
+}
