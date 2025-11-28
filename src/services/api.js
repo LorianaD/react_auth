@@ -26,7 +26,7 @@ export async function register(email, password) {
 
 // logique de connexion
 
-async function login(email, password) {
+export async function login(email, password) {
     // faire la request post sur la route api/auth/login
     const response = await fetch(`${API_URL}/api/auth/login`, {
         method: 'POST',
